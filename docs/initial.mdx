@@ -1,0 +1,115 @@
+# Mason First Look
+
+## Quick Start
+Note : Because mason_cli made with dart Before installation make sure your machine already install [Dart SDK](https://dart.dev/get-dart).
+
+🎯 Activate from https://pub.dev
+```sh
+dart pub global activate mason_cli
+```
+🍺  Install from https://brew.sh
+```sh
+brew tap felangel/mason
+brew install mason
+```
+
+## Overview
+
+Make sure mason is installed successfull on your terminal enter command below
+
+```sh
+mason
+```
+
+```sh
+🧱  mason • lay the foundation!
+
+Usage: mason <command> [arguments]
+
+Global options:
+-h, --help       Print this usage information.
+    --version    Print the current version.
+
+Available commands:
+  add        Adds a brick from a local or remote source.
+  bundle     Generates a bundle from a brick template.
+  cache      Interact with mason cache.
+  get        Gets all bricks in the nearest mason.yaml.
+  init       Initialize mason in the current directory.
+  list       Lists installed bricks.
+  login      Log into brickhub.dev.
+  logout     Log out of brickhub.dev.
+  make       Generate code using an existing brick template.
+  new        Creates a new brick template.
+  publish    Publish the current brick to brickhub.dev.
+  remove     Removes a brick.
+  search     Search published bricks on brickhub.dev.
+  unbundle   Generates a brick template from a bundle.
+  update     Update mason.
+  upgrade    Upgrade bricks to their latest versions.
+
+Run "mason help <command>" for more information about a command.
+```
+Now you can use mason_cli.
+
+
+
+## Mason init
+```sh
+mason init
+```
+output :
+```sh
+✓ Initializing (80ms)
+✓ Getting bricks (1.5s)
+✓ Generated 1 file(s):
+  /Users/virak/Learning/Python/mason.yaml (new)
+
+Run "mason make hello" to use your first brick.
+```
+
+## Make first brick
+run command bellow to make your first brick
+```sh
+mason make hello
+```
+output :
+```sh
+? What is your name? (Dash) virak
+✓ Made brick hello (59ms)
+✓ Generated 1 file:
+  /Users/virak/Learning/Python/HELLO.md (new)
+```
+
+## Mason get
+
+Think of [flutter pub get](b) here mason also has mason get to get all register brick in current scope
+```sh
+mason get
+```
+output :
+```sh
+✓ Getting bricks (33ms)
+```
+
+## Summary
+
+🎯 Activate from https://pub.dev
+```sh
+dart pub global activate mason_cli
+```
+
+📁 Initialize mason in the current workspace
+```sh
+mason init
+```
+
+🔃 get all the bricks definded in 'mason.yaml'
+```sh
+mason get
+```
+
+🚧 generate code from a brick
+```sh
+mason make hello
+```

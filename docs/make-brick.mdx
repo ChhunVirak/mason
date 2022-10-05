@@ -1,0 +1,81 @@
+# Create Your First Brick
+
+as recommandation we should put all bricks in a folder that should be name bricks
+
+## New Brick
+
+Create a new brick using the 'mason new' command.
+
+```sh
+# Generate a new brick in the current directory.
+mason new <BRICK_NAME>
+# Generate a new brick in custom path.
+mason new <BRICK_NAME> --output-dir ./path/to/brick
+# Generate a new brick in custom path shorthand syntax.
+mason new <BRICK_NAME> -o ./path/to/brick
+```
+
+eg.
+```sh
+mason new greeting
+```
+output :
+```sh
+✓ Created new brick: greeting (0.1s)
+✓ Generated 5 file(s):
+  /Users/virak/Learning/Python/bricks/greeting/brick.yaml (new)
+  /Users/virak/Learning/Python/bricks/greeting/README.md (new)
+  /Users/virak/Learning/Python/bricks/greeting/CHANGELOG.md (new)
+  /Users/virak/Learning/Python/bricks/greeting/LICENSE (new)
+  /Users/virak/Learning/Python/bricks/greeting/__brick__/HELLO.md (new)
+```
+
+
+
+## Brick YAML
+The brick.yaml definded the metadata for a specific brick template.
+
+```sh
+name: test
+description: A new brick created with the Mason CLI.
+
+# The following defines the version and build number for your brick.
+# A version number is three numbers separated by dots, like 1.2.34
+# followed by an optional build number (separated by a +).
+version: 0.1.0+1
+
+# The following defines the environment for the current brick.
+# It includes the version of mason that the brick requires.
+environment:
+  mason: ">=0.1.0-dev.26 <0.1.0"
+
+# Variables specify dynamic values that your brick depends on.
+# Zero or more variables can be specified for a given brick.
+# Each variable has:
+#  * a type (string, number, boolean, enum, or array)
+#  * an optional short description
+#  * an optional default value
+#  * an optional list of default values (array only)
+#  * an optional prompt phrase used when asking for the variable
+#  * a list of values (enums only)
+vars:
+  name:
+    type: string
+    description: Your name
+    default: Dash
+    prompt: What is your name?
+```
+
+- can contain zero or more variables
+- variable types include 
+  - string, number, boolean, enum, array
+## Brick Template
+Write your brick template in the `__`**brick**`__` directory using [mustache templates](https://mustache.github.io/). See the [mustache manual](https://mustache.github.io/mustache.5.html) for detailed usage information.
+
+eg. `__brick__/example.md`
+
+```md
+# Hello {{name}}!
+```
+    - `__brick__` can contain multiple files and subdirectories.
+    - use `{{{variable}}}` instead of `{{variable}}` when you want the value of `variable` to be unescaped.

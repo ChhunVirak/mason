@@ -1,5 +1,5 @@
 {
-  "name": "Awesome Project",
+  "name": "Mason Dart Packages",
   "theme": "#ab47bc",
   "favicon": "/assets/favicon.ico",
   "logo": "https://mycdn.com/awesome-logo.png",
@@ -7,5 +7,32 @@
     "appId": "...",
     "apiKey": "...",
     "indexName": "..."
-  }
+  },
+  "sidebar": [
+    [
+      "Mason",
+      [
+        [
+          "Introduction",
+          "/introduction"
+        ],
+        [
+          "Eps 1 - First Look",
+          "/initial"
+        ],
+        [
+          "Eps 2 - Create Brick",
+          "/make-brick"
+        ],
+        [
+          "Eps 3 - Variable",
+          "/vars-brick"
+        ],
+        [
+          "Eps 3 - Deep to Brick",
+          "/deep-brick"
+        ]
+      ]
+    ]
+  ]
 }

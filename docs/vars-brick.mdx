@@ -1,0 +1,139 @@
+# Varible 
+
+let's talk about variable use in **brick.yaml**
+
+```sh
+vars:
+  name:
+    type: string
+    description: Your name
+    default: Dash
+    prompt: What is your name?
+  example:
+    type: ...
+    description: ....
+    prompt: .....
+    default: ....
+    defaults: 
+        - a
+        - c
+    values:
+        - a
+        - b
+        - c 
+```
+**vars** : you can place all varible you want to use in your brick 
+
+**name** : give your variable a name. eg. name, age, amount . . .
+
+**type** : defind type for your variable 
+
+**prompt** : the message that show when generate brick
+
+**description** : give your varible a description
+
+**default** : give default value for your variable
+
+**defaults** : give default value for your variable ( for array type )
+
+**values** : set all value for your variable ( for array type and enum )
+
+## string
+
+```sh
+vars:
+  name:
+    type: string
+    description: any
+    default: Virak
+    prompt: What is your name?
+```
+output :
+
+```sh
+? What is your name? (Virak)
+```
+
+## number
+
+```sh
+vars:
+  age:
+    type: number
+    description: any
+    default: 20
+    prompt: How old are you?
+```
+output :
+
+```sh
+? How old are you? (20)
+```
+
+## boolean
+
+```sh
+vars:
+  married:
+    type: boolean
+    description: any
+    default: true #false
+    prompt: Are you married?
+```
+output :
+
+```sh
+? Are you married? (Y/n) 
+```
+
+## array
+
+```sh
+vars:
+  add_on:
+    type: array
+    description: any
+    defaults:
+        - a
+        - c
+    values:
+        - a
+        - b
+        - c
+        - d
+    prompt: Select add-on?
+```
+output :
+
+```sh
+? Select add-ons?
+❯ ◉  a
+  ◯  b
+  ◉  c
+  ◯  d
+```
+
+## enum
+
+```sh
+vars:
+  engine:
+    type: enum
+    description: any
+    default: gasoline
+    values:
+        - gasoline
+        - diesel
+        - gas
+        - electric
+    prompt: What kind of your car engine type?
+```
+output :
+
+```sh
+? What kind of your car engine type?
+❯ ◉  gasoline
+  ◯  diesel
+  ◯  gas
+  ◯  electric
+```
