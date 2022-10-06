@@ -1,0 +1,34 @@
+## Add Brick
+
+```sh
+# add from path
+mason add --source path ./path/to/brick
+
+# add from path (global)
+mason add --global --source path ./path/to/brick
+
+# add from path shorthand syntax
+mason add ./path/to/brick
+
+# add from path shorthand syntax (global)
+mason add -g ./path/to/brick
+
+# add from git url
+mason add --source git https://github.com/user/repo
+
+# add from git url (global)
+mason add -g --source git https://github.com/user/repo
+
+# add from git url with path
+mason add --source git https://github.com/user/repo --path path/to/brick
+```
+
+## File Conflict Resolution
+By default, mason make will prompt on each file conflict and will allow users to specify how the conflict should be resolved via Yyna:
+
+```sh
+y - yes, overwrite (default)
+Y - yes, overwrite this and all others
+n - no, do not overwrite
+a - append to existing file
+```

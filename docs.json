@@ -29,7 +29,11 @@
           "/vars-brick"
         ],
         [
-          "Eps 3 - Deep to Brick",
+          "Eps 4 - Generation",
+          "/generation"
+        ],
+        [
+          "Eps 5 - Deep to Brick",
           "/deep-brick"
         ]
       ]

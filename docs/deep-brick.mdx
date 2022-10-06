@@ -1,27 +1,54 @@
 # Let's Create Something cool with Mason
 
-## Function fetch api
+## Module
 
+`__brick__`
+
+```
+__brick__
+  ├── model
+  │     └ {{name.snakeCase()}}.dart
+  ├── controller
+  │     └ {{name.snakeCase()}}Controller.dart
+  └── screen
+        └ {{name.snakeCase()}}Screen.dart
+```
+`brick.yaml`
+```
+vars:
+  name:
+    type: string
+    description: Your name
+    default: Dash
+    prompt: Enter module name?
+```
+
+
+## Function fetch api
+`__brick__`
 ```sh
 import 'package:get/get.dart';
 
 class {{name.pascalCase()}}Controller extends GetxController {
   ///Fetch Model
   final {{name.camelCase()}}Model = {{name.pascalCase()}}Model().obs;
+  final list{{name.pascalCase()}} = <{{name.pascalCase()}}Model>[].obs;
   final fetch{{name.pascalCase()}}Loading = false.obs;
 
-  Future<{{name.pascalCase()}}Model> fetch{{name.pascalCase()}}() async {
+  Future<List<{{name.pascalCase()}}Model>> fetch{{name.pascalCase()}}() async {
     fetch{{name.pascalCase()}}Loading(true);
     await _apiBaseHelper
         .onNetworkRequesting(
             url: 'URL_HERE', methode: METHODE.get, isAuthorize: true)
         .then((response) {
-
     {{#debug}}
       debugPrint('Debugging Success fetch{{name.pascalCase()}} : $response');
     {{/debug}}
-    ///
-    {{name.camelCase()}}Model.value = {{name.pascalCase()}}Model.fromJson(response['DESTINATION_KEY']);
+
+      list{{name.pascalCase()}}.clear();
+      response['JSON_KEY'].map((element) {
+        list{{name.pascalCase()}}.add({{name.pascalCase()}}Model.fromJson(element));
+      }).toList();
 
       fetch{{name.pascalCase()}}Loading(false);
     }).onError((ErrorModel error, stackTrace) {
@@ -33,7 +60,46 @@ class {{name.pascalCase()}}Controller extends GetxController {
     {{/debug}}
      
     });
-    return {{name.pascalCase()}}Model;
+    return list{{name.pascalCase()}};
   }
 }
+```
+`brick.yaml`
+```sh
+vars:
+  name:
+    type: string
+    description: Your name
+    prompt: What is your name?
+  debug:
+    type: boolean
+    default: true
+    description: debugging
+    prompt: Do you want to include Debugging?
+```
+
+array
+
+`__brick__`
+```sh
+{{#member}}
+ {{.}}
+{{/member}}
+```
+
+`brick.yaml`
+```sh
+vars:
+  member:
+    type: array
+    description: any
+    defaults:
+      - tola
+    values: 
+      - tola
+      - chhany
+      - hanny
+      - si ying
+      - virak
+    prompt: who joined?
 ```
