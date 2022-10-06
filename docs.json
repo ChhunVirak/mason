@@ -1,13 +1,5 @@
 {
-  "name": "Mason Dart Packages",
-  "theme": "#ab47bc",
-  "favicon": "/assets/favicon.ico",
-  "logo": "https://mycdn.com/awesome-logo.png",
-  "docsearch": {
-    "appId": "...",
-    "apiKey": "...",
-    "indexName": "..."
-  },
+  "name": "Mason_cli",
   "sidebar": [
     [
       "Mason",
