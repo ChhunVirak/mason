@@ -1,5 +1,62 @@
 # Let's Create Something cool with Mason
 
+## Brick Template
+Write your brick template in the `__`**brick**`__` directory using [mustache templates](https://mustache.github.io/). See the [mustache manual](https://mustache.github.io/mustache.5.html) for detailed usage information.
+
+eg. `__brick__/example.md`
+
+```md
+# Hello {{name}}!
+```
+    - `__brick__` can contain multiple files and subdirectories.
+    - use `{{{variable}}}` instead of `{{variable}}` when you want the value of `variable` to be unescaped.
+
+
+## string
+`__brick__`
+```sh
+{{name}}   //string
+{{age}}    //number
+{{choice}} //enum
+```
+## boolean
+`__brick__`
+```sh
+{{#allow}}
+  render if allow == true
+{{/allow}}
+
+{{^allow}}
+  render if allow == false
+{{/allow}}
+```
+
+## array
+
+`__brick__`
+```sh
+{{#member}}
+ {{.}}
+{{/member}}
+```
+
+`brick.yaml`
+```sh
+vars:
+  member:
+    type: array
+    description: any
+    defaults:
+      - tola
+    values: 
+      - tola
+      - chhany
+      - hanny
+      - si ying
+      - virak
+    prompt: who joined?
+```
+
 ## Module
 
 `__brick__`
@@ -76,30 +133,4 @@ vars:
     default: true
     description: debugging
     prompt: Do you want to include Debugging?
-```
-
-array
-
-`__brick__`
-```sh
-{{#member}}
- {{.}}
-{{/member}}
-```
-
-`brick.yaml`
-```sh
-vars:
-  member:
-    type: array
-    description: any
-    defaults:
-      - tola
-    values: 
-      - tola
-      - chhany
-      - hanny
-      - si ying
-      - virak
-    prompt: who joined?
 ```

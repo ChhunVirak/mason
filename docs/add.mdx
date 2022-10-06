@@ -1,0 +1,40 @@
+# Add-On
+## Custom VsCode Snippet
+
+**Code > preferencese > Configure user Snippets**
+
+## Dart Language Abilities
+
+- have you ever see
+``` dart 
+context.go(HomeScreen());
+```
+
+- It come from
+
+``` dart
+extension GoRouterHelper on BuildContext {
+    void go(String location, {Object? extra}) =>
+        GoRouter.of(this).go(location, extra: extra);
+}
+```
+- Method I used in CiC
+``` dart
+extension CiC on String {
+  static final numberFormat = NumberFormat("#,##0.00", "en_US");
+  String toCiCNumber() {
+    var numb = double.tryParse(this);
+    if (numb != null) {
+      return numberFormat.format(numb);
+    } else {
+      debugPrint('here');
+      return this;
+    }
+  }
+}
+```
+```dart
+String numberFromApi = 1234.5;
+numberFromApi.toCiCNumber(); //1,234.50
+'10000'.toCiCNumber();       //1,000.00
+```

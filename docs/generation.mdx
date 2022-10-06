@@ -1,3 +1,34 @@
+# Generation
+
+## Make template from a brick
+```sh
+# output in current directory
+mason make <BRICK_NAME>
+
+# specific directory using '-o'
+mason make <BRICK_NAME> -o ./path/to/brick
+
+# specific directory with config
+mason make <BRICK_NAME> -c config.json -o ./path/to/brick
+```
+
+## Config file
+create a json file **config.json** :
+```sh
+touch config.json
+```
+copy this to **config.json** : 
+```sh
+{
+    "name": "Flutter"
+}
+```
+
+run :
+```sh
+mason make hello -c config.json
+```
+
 ## Add Brick
 
 ```sh
